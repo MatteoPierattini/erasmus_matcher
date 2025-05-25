@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Confronta più syllabus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Erasmus Matcher</h1>
+        <form method="POST" id="syllabus-form">
+            <div id="syllabus-container">
+                <div class="syllabus-box">
+                    <textarea name="syllabi" rows="6" cols="60" placeholder="Inserisci syllabus..."></textarea>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 10px;">
+                <button type="button" onclick="aggiungiTextarea()">Aggiungi syllabus</button>
+                <button type="submit">Confronta</button>
+            </div>
+        </form>
+
+        {% if universita %}
+            <h2>Università compatibili:</h2>
+            <ul>
+                {% for uni in universita %}
+                    <li>
+                        <strong>{{ uni.nome }}</strong> – {{ uni.match_count }} match
+                        (similarità media: {{ uni.similarita_media }}%)
+                        <ul>
+                            {% for dettaglio in uni.dettagli %}
+                                <li><strong>Input {{ dettaglio.input_index }}</strong>: {{ dettaglio.corso }} – Similarità: {{ dettaglio.similarita }}%</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% elif ricerca_effettuata %}
+            <p>Nessuna università compatibile trovata.</p>
+        {% endif %}
+    </div>
+    <div class="footer" style="text-align: center;">
+        <p>&copy; 2025 Erasmus Matcher. Tutti i diritti riservati.</p>
+        <a href="{{ url_for('info') }}" class="btn" style="background:#fff; color:#2056b2; border:1px solid #2056b2; margin-bottom:12px; display:inline-block; margin-top:8px;">Info progetto</a>
+    </div>
+
+    <script>
+        function aggiungiTextarea() {
+            const container = document.getElementById('syllabus-container');
+
+            const box = document.createElement('div');
+            box.className = 'syllabus-box';
+
+            const textarea = document.createElement('textarea');
+            textarea.name = 'syllabi';
+            textarea.rows = 6;
+            textarea.cols = 60;
+            textarea.placeholder = 'Inserisci syllabus...';
+
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'remove-btn';
+            removeBtn.innerText = '❌';
+            removeBtn.onclick = () => container.removeChild(box);
+
+            box.appendChild(textarea);
+            box.appendChild(removeBtn);
+            container.appendChild(box);
+        }
+    </script>
+</body>
+</html>

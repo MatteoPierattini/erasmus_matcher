@@ -1,0 +1,195 @@
+/* Minimal, clean and modern style with fresh buttons and typography */
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: #f7fafd;
+    color: #23272f;
+    min-height: 100vh;
+}
+
+.header {
+    background: #fff;
+    box-shadow: 0 2px 16px rgba(60, 80, 120, 0.05);
+    padding: 32px 0 20px 0;
+    text-align: center;
+    border-radius: 0 0 24px 24px;
+    margin-bottom: 36px;
+}
+
+.header h1 {
+    font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #1a3a5d;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.header p {
+    color: #6b7a8f;
+    font-size: 1.13rem;
+    margin-top: 8px;
+    font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+    font-weight: 400;
+}
+
+.container {
+    max-width: 540px;
+    width: 96%;
+    margin: 48px auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px rgba(60, 80, 120, 0.06);
+    padding: 38px 26px 28px 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 56vh;
+}
+
+form {
+    width: 100%;
+}
+
+label {
+    font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+    font-weight: 600;
+    color: #1a3a5d;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 1.08rem;
+    letter-spacing: 0.01em;
+}
+
+input[type="text"], textarea, select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid #e3e7ef;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-bottom: 18px;
+    background: #fafdff;
+    transition: border 0.2s, box-shadow 0.2s;
+    color: #23272f;
+    font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+    box-shadow: 0 1px 2px rgba(45,95,255,0.02);
+}
+
+input[type="text"]:focus, textarea:focus, select:focus {
+    border-color: #1a3a5d;
+    outline: none;
+    background: #f3f7ff;
+    box-shadow: 0 2px 8px rgba(45,95,255,0.07);
+}
+
+button, .btn {
+    background: #2056b2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 28px;
+    font-size: 1.05rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: none;
+    transition: background 0.18s, transform 0.1s;
+    margin-top: 8px;
+    margin-right: 8px;
+    letter-spacing: 0.01em;
+}
+
+button:hover, .btn:hover {
+    background: #174080;
+    color: #fff;
+    transform: translateY(-1px) scale(1.02);
+}
+
+.syllabus-box {
+    margin-bottom: 14px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.syllabus-box textarea {
+    width: 100%;
+    min-height: 70px;
+    max-height: 180px;
+    height: 90px; /* Altezza leggermente ridotta rispetto al default */
+    box-sizing: border-box;
+    padding: 13px 18px;
+    border-radius: 10px;
+    border: 1.5px solid #e3e7ef;
+    background: #fafdff;
+    font-size: 1rem;
+    resize: vertical;
+    color: #23272f;
+    font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #e0e4ef;
+    color: #1a3a5d;
+    border: none;
+    cursor: pointer;
+    padding: 4px 10px;
+    font-size: 15px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+}
+.remove-btn:hover {
+    background-color: #1a3a5d;
+    color: #fff;
+}
+
+.card {
+    background: #fafdff;
+    border-radius: 15px;
+    box-shadow: 0 2px 12px rgba(60, 80, 120, 0.04);
+    padding: 22px 18px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0 6px 24px rgba(60, 80, 120, 0.09);
+}
+
+.result-title {
+    color: #1a3a5d;
+    font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.13rem;
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+}
+
+.result-score {
+    color: #6dd5ed;
+    font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    letter-spacing: 0.01em;
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 16px 2vw 12px 2vw;
+        min-height: unset;
+    }
+    .header {
+        padding: 18px 0 12px 0;
+    }
+    .syllabus-box textarea {
+        font-size: 0.97rem;
+    }
+}

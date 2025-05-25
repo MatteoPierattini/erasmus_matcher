@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Elenco dei Corsi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Corsi nel Database</h1>
+        <table border="1" cellspacing="0" cellpadding="8">
+            <tr>
+                <th>Nome Corso</th>
+                <th>Università</th>
+                <th>Syllabus</th>
+            </tr>
+            {% for corso in corsi %}
+            <tr>
+                <td>{{ corso.name }}</td>
+                <td>{{ corso.university.name }}</td>
+                <td>{{ corso.syllabus }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

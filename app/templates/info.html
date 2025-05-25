@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Info progetto | Erasmus Matcher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Info progetto</h1>
+        <p>
+            <strong>Erasmus Matcher</strong> è un'applicazione web che aiuta a confrontare syllabus universitari tra diverse università europee.<br><br>
+            <b>Come funziona:</b><br>
+            - Inserisci uno o più syllabus.<br>
+            - Il sistema analizza il testo e trova i corsi Erasmus più simili nel database.<br>
+            - Vengono mostrati i risultati con percentuale di similarità.<br><br>
+            <b>Perché:</b><br>
+            Questo progetto nasce per facilitare la ricerca di corsi compatibili per studenti Erasmus.<br><br>
+            <b>Chi ha realizzato il progetto:</b><br>
+            Progetto sviluppato da [Il tuo nome o team].<br><br>
+            <b>Contatti:</b><br>
+            [Inserisci eventuali contatti o riferimenti]
+        </p>
+        <a href="{{ url_for('confronta_multiplo') }}" class="btn">Torna alla Home</a>
+    </div>
+</body>
+</html>
