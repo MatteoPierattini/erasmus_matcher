@@ -14,10 +14,16 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 from app.models import Course
 
+from deep_translator import GoogleTranslator
+
+
 def get_embedding(text):
     response = client.embeddings.create(input=text,
     model="text-embedding-ada-002")
     return response.data[0].embedding
+
+def translate_to_english(text):
+    return GoogleTranslator(source='auto', target='en').translate(text)
 
 @app.route('/', methods=['GET', 'POST'])
 def confronta_multiplo():
@@ -27,7 +33,7 @@ def confronta_multiplo():
     if request.method == 'POST':
         syllabus_list = request.form.getlist('syllabi')
         embeddings_input = [
-            (i + 1, get_embedding(s)) for i, s in enumerate(syllabus_list) if s.strip()
+            (i + 1, get_embedding(translate_to_english(s))) for i, s in enumerate(syllabus_list) if s.strip()
         ]
 
         corsi_db = Course.query.all()
@@ -43,7 +49,7 @@ def confronta_multiplo():
                         best_sim = sim
                         best_match = corso
 
-            if best_sim >= 0.75 and best_match:
+            if best_sim >= 0.20 and best_match:
                 uni = best_match.university.name
                 if uni not in risultati_per_universita:
                     risultati_per_universita[uni] = []

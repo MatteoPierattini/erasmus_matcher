@@ -1,8 +1,7 @@
-Flask==3.1.0
-Flask-SQLAlchemy==3.1.1
-SQLAlchemy==2.0.40
-openai==1.78.1
-scipy==1.8.0
-Jinja2==3.1.6
-Werkzeug==3.1.3s
-pytest==6.2.5
+Flask
+Flask-SQLAlchemy
+python-dotenv
+openai
+scikit-learn
+deep-translator
+gunicorn

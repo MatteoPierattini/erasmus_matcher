@@ -22,5 +22,4 @@ with app.app_context():
             corso.embedding = get_embedding(corso.syllabus)
     db.session.commit()
     print("✅ Tutti gli embedding sono stati salvati.")
-    print(Course.query.first().embedding)
 
