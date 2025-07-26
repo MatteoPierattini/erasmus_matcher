@@ -8,7 +8,7 @@ with app.app_context():
     # Università
     u1 = University(name="Univerzita Tomáše Bati ve Zlíně")
     u2 = University(name="Universidad Carlos III de Madrid")
-    u3 = University(name="Università di Berlino")
+    u3 = University(name="University of Chemistry and Technology, Prague")
 
     db.session.add_all([u1, u2, u3])
     db.session.commit()
@@ -23,9 +23,17 @@ with app.app_context():
             university=u1
         ),
 
+        Course(
+            name="Food Microbiology",
+            syllabus=(
+                "Applied microbiology and its applications. Differences between prokaryotic and eukaryotic microorganisms. Microorganisms desirable and undesirable in the food industry. Metabolic processes of microorganisms and their importance for the food production. External and internal factors affecting growth and survival of microorganisms in food. Food preservation. Production of inhibitory substances by microorganisms. Sampling for microbiological analysis and methods to detect microorganisms in food. Lactic acid bacteria and their role in biotechnology. Microbiology of milk and milk products. Microbiology of meat and meat products, fish, poultry and eggs. Microbiology of soft drinks, fruits, vegetables and products made from them. The role of microorganisms in the production of fermented beverages. Microbiology of food of vegetable origin - flour, bakery and confectionery products, starch products, sugar and confectionery. Microbiology of fat products. Microbiology of cold food products, delicatessen, semi-finished and ready meals. Functional food in relation to microorganisms; probiotics, prebiotics and synbiotics. The use of genetically modified bacteria, yeasts and fungi in the food production. Health risks. Detection of genetically modified organisms in food. "
+            ),
+            university=u1
+        ),
+
         # Universidad Carlos III de Madrid
         Course(
-            name="Propulsion systems performance and design",
+            name="Propulsion systems performance",
             syllabus=(
                 "Review of requirements of engine components, the engine design process, the request for proposal, constraint analysis and mission analysis, parametric cycle analysis, turbojet, turbojet with afterburner, turbofan with mixed/unmixed stream, performance cycle analysis, off-design behavior, component matching, installed performances, ramjets and scramjets, sensors, instrumentation and control, control systems requirements and strategy, basic engine control functions, lubrication and cooling, oil systems: lube supply, tank, piping, scavenge system, secondary air system, turbine heat transfer, film cooling, internal cooling (jet impingement, rib-turbulated, pin-fin), bearing and seals, mainshaft bearing types, fatigue life considerations, dynamic seals types (labyrinth seals, carbon seals), structural analysis, fundamentals of rotordynamics, balancing procedures and vibrations suppression, elements of turbomachinery flutter, engine testing and certification."
             ),
@@ -37,7 +45,16 @@ with app.app_context():
                 "Introduction to Computational Aerodynamics, the mathematical models for fluid flow simulations, the equations of fluid dynamics, the mathematical nature of the flow equations and boundary conditions, discretization techniques, finite difference methods, finite volume methods, structured and unstructured grids, the analysis of numerical schemes, consistency, stability and error analysis, the resolution of numerical schemes, time integration methods, iterative methods for the resolution of algebraic systems, applications to inviscid and/or viscous flows, introduction to turbulence and its modeling, direct numerical simulation (DNS), large eddy simulation (LES), Reynolds-averaged Navier-Stokes (RANS)."
             ),
             university=u2
-        )
+        ),
+
+        # University of Chemistry and Technology, Prague
+        Course(
+            name="Power Engineering",
+            syllabus=(
+                "Power engineering, energy sources, principles of energy conversion, 1st law of thermodynamics, 2nd law of thermodynamics, states of liquid water and steam, calculations, diagrammes, thermal cycles, Carnot, Clausius-Rankine, ORC, Kalina cycle, steam production, boilers and steam generators, steam accumulation, Brayton cycle, combined cycles, water treatment in power engineering, corrosion and protection of power systems, cooling cycles, cooling water treatment, reversed Carnot cycle, cooling to low temperature, heat pump, power production, electrochemical energy conversion in fuel cells, nuclear power, energy and environment, renewable energy sources."
+            ),
+            university=u3
+        ),
     ]
 
     db.session.add_all(corsi)

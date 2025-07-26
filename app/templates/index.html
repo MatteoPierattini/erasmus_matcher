@@ -2,13 +2,13 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Confronta più syllabus</title>
+    <title>ErasmusMatcher</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body >
     <div class="container">
-        <h1 style="text-align: center;">Erasmus Matcher</h1>
+        <h1 style="text-align: center; font-size: 3em; color: #1d3e6e;">ErasmusMatcher</h1>
         <form method="POST" id="syllabus-form">
             <div id="syllabus-container">
                 <div class="syllabus-box">
@@ -20,17 +20,15 @@
                 <button type="submit">Confronta</button>
             </div>
         </form>
-
         {% if universita %}
-            <h2>Università compatibili:</h2>
-            <ul>
+            <h1 style="color: #1d3e6e; margin-top: 40px; margin-bottom: 16px;">Università compatibili</h1>
+            <ul style="margin-top: 0;">
                 {% for uni in universita %}
-                    <li>
-                        <strong>{{ uni.nome }}</strong> – {{ uni.match_count }} match
-                        (similarità media: {{ uni.similarita_media }}%)
-                        <ul>
+                    <li style="margin-bottom: 28px;">
+                        <strong style="color: #1d3e6e;">{{ uni.nome }}</strong>: {{ uni.match_count }} match
+                        <ul style="margin-top: 10px;">
                             {% for dettaglio in uni.dettagli %}
-                                <li><strong>Input {{ dettaglio.input_index }}</strong>: {{ dettaglio.corso }} – Similarità: {{ dettaglio.similarita }}%</li>
+                                <li><strong style="color: #1d3e6e;">{{ dettaglio.corso }}</strong> – Similarità: {{ dettaglio.similarita }}%</li>
                             {% endfor %}
                         </ul>
                     </li>
@@ -41,8 +39,7 @@
         {% endif %}
     </div>
     <div class="footer" style="text-align: center;">
-        <p>2025 Erasmus Matcher</p>
-        <a href="{{ url_for('info') }}" class="btn" style="background:#fff; color:#2056b2; border:1px solid #2056b2; margin-bottom:12px; display:inline-block; margin-top:8px;">Info progetto</a>
+        <a href="{{ url_for('info') }}" class="btn" style="background:#fff; color:#1d3e6e; border:1px solid #1d3e6e; margin-bottom:12px; display:inline-block; margin-top:8px;">Info progetto</a>
     </div>
 
     <script>
@@ -51,6 +48,7 @@
 
             const box = document.createElement('div');
             box.className = 'syllabus-box';
+            box.style.position = 'relative';
 
             const textarea = document.createElement('textarea');
             textarea.name = 'syllabi';
@@ -61,7 +59,19 @@
             const removeBtn = document.createElement('button');
             removeBtn.type = 'button';
             removeBtn.className = 'remove-btn';
-            removeBtn.innerText = '❌';
+            removeBtn.innerText = '✖️';
+            // Stili per la X: piccola, blu, in alto a destra
+            removeBtn.style.position = 'absolute';
+            removeBtn.style.top = '4px';
+            removeBtn.style.right = '4px';
+            removeBtn.style.fontSize = '1em';
+            removeBtn.style.background = 'transparent';
+            removeBtn.style.border = 'none';
+            removeBtn.style.color = '#1d3e6e';
+            removeBtn.style.cursor = 'pointer';
+            removeBtn.style.padding = '0 4px';
+            removeBtn.style.lineHeight = '1';
+
             removeBtn.onclick = () => container.removeChild(box);
 
             box.appendChild(textarea);

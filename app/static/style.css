@@ -86,7 +86,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 }
 
 button, .btn {
-    background: #2056b2;
+    background: #1d3e6e;
     color: #fff;
     border: none;
     border-radius: 8px;
